@@ -24,7 +24,7 @@ const EditProfile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('/users/me', {
+        const res = await axios.get('/api/users/me', {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -48,7 +48,7 @@ const EditProfile = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.put('/users/me', formData, {
+      await axios.put('/api/users/me', formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

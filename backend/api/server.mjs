@@ -65,7 +65,7 @@ const authenticateToken = (req, res, next) => {
 };
 
 
-app.post('/gym', async(req, res)=>{
+app.post('/agi/gym', async(req, res)=>{
     console.log(req.body)
     const {gym} = req.body;
     try {
@@ -81,7 +81,7 @@ app.post('/gym', async(req, res)=>{
       }
 });
 
-app.get('/getCurrentGym', async (req, res)=>{
+app.get('/api/getCurrentGym', async (req, res)=>{
     try{
         const current = await GymStatus.findOne(
             {_id: 'current_gym'}
@@ -93,7 +93,7 @@ app.get('/getCurrentGym', async (req, res)=>{
     }
 })
 
-app.post('/upload-climb', upload.single('image'), async (req, res) => {
+app.post('/api/upload-climb', upload.single('image'), async (req, res) => {
   try {
     const { userId, gym, grade, style, username } = req.body;
     const styles = style.split(',');
@@ -138,7 +138,7 @@ app.post('/upload-climb', upload.single('image'), async (req, res) => {
   }
 });
 
-app.get('/climbs', async(req, res)=>{
+app.get('/api/climbs', async(req, res)=>{
   const {gym, grade, styles} = req.query;
   try{
     let query = {};
@@ -153,7 +153,7 @@ app.get('/climbs', async(req, res)=>{
   }
 })
 
-app.get('/climbs/count', async (req, res) => {
+app.get('/api/climbs/count', async (req, res) => {
   const { username } = req.query;
 
   if (!username) {
@@ -170,7 +170,7 @@ app.get('/climbs/count', async (req, res) => {
   res.json({ total });
 });
 
-app.get('/users/me', authenticateToken, async (req, res) => {
+app.get('/api/users/me', authenticateToken, async (req, res) => {
   try {
     console.log(req.user.userId);
     const user = await User.findById(req.user.userId).select('-passwordHash');
@@ -181,7 +181,7 @@ app.get('/users/me', authenticateToken, async (req, res) => {
   }
 });
 
-app.put('/users/me', authenticateToken, async(req, res)=>{
+app.put('api/users/me', authenticateToken, async(req, res)=>{
   try{
     const {username, email, height, armSpan, age} = req.body;
     const result = await User.findByIdAndUpdate(

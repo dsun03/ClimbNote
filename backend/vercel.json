@@ -1,12 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {"src": "*./src/server.mjs", "use": "@vercel/node"}
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/api/server.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/api/server.mjs"
+    }
+  ]
+}

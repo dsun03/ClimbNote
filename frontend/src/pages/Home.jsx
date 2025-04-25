@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(() => {
       const fetchGym = async () => {
         try {
-          const response = await axios.get('/getCurrentGym');
+          const response = await axios.get('/api/getCurrentGym');
           setCurrentGym(response.data);
         } catch (error) {
           console.error("Error getting current gym", error);
@@ -19,7 +19,7 @@ const Home = () => {
     }, []);
 
     const updateGym =(gymName)=> {
-      axios.post('/gym', {gym: gymName})
+      axios.post('/api/gym', {gym: gymName})
       .then(setCurrentGym(gymName))
       .catch(err=>console.error("Failed to update gym", err));
     }
