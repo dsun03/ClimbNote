@@ -32,7 +32,7 @@ const ClimbCard = (props) =>{
                     </div>
 
                     <div className="flip-card-back">
-                        {props.climbDetails.image && <img src={`${process.env.BACK_PORT}${props.climbDetails.image}`} alt="Route" />}
+                        {props.climbDetails.image && <img src={`${props.climbDetails.image}`} alt="Route" />}
                         {!props.climbDetails.image && <p>No picture ;-;</p>}
                     </div>
                 </div>

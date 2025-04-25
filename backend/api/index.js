@@ -8,14 +8,21 @@ import Climb from '../models/climb.mjs'
 import User from '../models/user.mjs'
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
+import multerS3 from 'multer-s3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import AWS from 'aws-sdk';
 
+dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-dotenv.config();
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
+});
 
 const app = express();
 const PORT = process.env.backPORT || 5001;
@@ -40,16 +47,19 @@ app.use(express.urlencoded({ extended: false }));
 // Routes for auth
 app.use("/api/auth", authRoutes);
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-       cb(null, 'public/uploads')
- },
-  filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
-  }
-  });
+const s3 = new AWS.S3();
 
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.AWS_BUCKET_NAME,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    key: function (req, file, cb) {
+      const filename = `climbs/${Date.now()}-${file.originalname}`;
+      cb(null, filename);
+    }
+  })
+});
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -100,46 +110,28 @@ app.post('/upload-climb', upload.single('image'), async (req, res) => {
   try {
     const { userId, gym, grade, style, username } = req.body;
     const styles = style.split(',');
-    console.log('username is',username);
-    console.log(styles)
-    // Check if image exists
-    if (!req.file) {
-      const newClimb = new Climb({
-        userId,
-        gym,
-        grade,
-        style:styles,
-        date: new Date(),
-        username
-      });
-  
-      await newClimb.save();
-  
-      return res.status(201).json({ message: 'Climb logged', climb: newClimb });
-    }
-
-    // Construct image path to serve it publicly
-    const imagePath = `/uploads/${req.file.filename}`;
+    const imageUrl = req.file?.location; // multer-s3 automatically adds .location
 
     const newClimb = new Climb({
       userId,
       gym,
       grade,
-      style,
-      image: imagePath, // Save image path in the DB
+      style: styles,
+      image: imageUrl,
       date: new Date(),
       username
     });
 
     await newClimb.save();
-
     res.status(201).json({ message: 'Climb logged', climb: newClimb });
 
   } catch (err) {
-    console.error('Failed to save climb', err);
-    res.status(500).json({ error: 'Failed to save climb' });
+    console.error('Upload failed', err);
+    res.status(500).json({ error: 'Failed to log climb' });
   }
 });
+
+
 
 app.get('/climbs', async(req, res)=>{
   const {gym, grade, styles} = req.query;
