@@ -64,8 +64,17 @@ const UploadClimbCard = ()=>{
                     Choose a gym: 
                     <select name="gyms" value = {gym} id="gyms" onChange={(e)=> setGym(e.target.value)}>
                         <option value="">-- Select a Gym --</option>
-                        <option value = "crg_riverside">CRG Riverside</option>
-                        <option value = "movementlic">Movement LIC</option>
+                        <option value = "Brooklyn_Boulders">Brooklyn Boulders</option>
+                        <option value = "Brooklyn_Bouldering_Project">Brooklyn Bouldering Project</option>
+                        <option value = "CRG_Chelsea">CRG Chelsea</option>
+                        <option value = "CRG_Riverside">CRG Riverside</option>
+                        <option value = "GP81">GP81</option>
+                        <option value = "Movement_Harlem">Movement Harlem</option>
+                        <option value = "Movement_Gowanus">Movement Gowanus</option>
+                        <option value = "Movement_LIC">Movement LIC</option>
+                        <option value = "Vital_Harlem">Vital Harlem</option>
+                        <option value = "Vital_LES">Vital LES</option>
+                        <option value = "Vital_Brooklyn">Vital Brooklyn</option>
                     </select>
                 </label>
                 <label>
@@ -115,9 +124,11 @@ const UploadClimbCard = ()=>{
                     ))}
                     </div>
                     </label>
-
-                    <input type = 'file' accept="image/*" onChange={handleImagePreview}></input>
-                    <img src = {file} alt = 'preview'></img>
+                    <label className='file-upload-label'>
+                        Choose image of route
+                        <input className="file-upload-input" type = 'file' accept="image/*" onChange={handleImagePreview}></input>
+                    </label>
+                    {file && <img className='upload-image-preview' src = {file} alt = 'preview'></img>}
                     <button className="upload-climb-submit-button" type="submit">Submit</button>
                 
 

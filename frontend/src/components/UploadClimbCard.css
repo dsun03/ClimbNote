@@ -2,7 +2,7 @@
   background-color: #ffffff;
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 500px;
+  max-width: 400px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -84,4 +84,34 @@
   
   .upload-climb-submit-button:hover {
     background-color: #3572d1;
+  }
+
+  .upload-image-preview{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .file-upload-input {
+    display: none;
+  }
+  
+  .file-upload-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .file-upload-label:hover {
+    background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
   }
