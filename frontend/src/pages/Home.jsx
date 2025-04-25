@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(() => {
       const fetchGym = async () => {
         try {
-          const response = await axios.get('/api/getCurrentGym');
+          const response = await axios.get('/getCurrentGym');
           setCurrentGym(response.data);
         } catch (error) {
           console.error("Error getting current gym", error);
