@@ -64,8 +64,11 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+app.get('/api', async(req, res)=>{
+  res.send("hi")
+})
 
-app.post('/agi/gym', async(req, res)=>{
+app.post('/api/gym', async(req, res)=>{
     console.log(req.body)
     const {gym} = req.body;
     try {
