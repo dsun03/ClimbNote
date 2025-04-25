@@ -30,7 +30,7 @@ console.error("MongoDB connection error:", err)
 
 app.use(
     cors({
-      origin: process.env.FRONT_PORT,
+      origin: 'https://climbing-tracker-vercel-frontend.vercel.app',
       credentials: true,
     })
   );
