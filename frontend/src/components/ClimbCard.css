@@ -1,0 +1,153 @@
+.climb-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* if needed for other placement */
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  transition: transform 0.2s ease;
+}
+  
+  .climb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .grade {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4e91fc;
+  }
+  
+  .gym {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: capitalize;
+  }
+  
+  .climb-body {
+    display: flex;
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow-x: auto;  /* enable horizontal scroll */
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem; /* optional: gives scroll breathing room */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ccc transparent;
+  }
+
+  .climb-body::-webkit-scrollbar {
+    height: 6px;
+  }
+  .climb-body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  .climb-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .style-chip {
+    background-color: #f0f4ff;
+    color: #1e3a8a;
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+  }
+  
+  .climb-footer {
+    margin-top: auto; /* pushes it to the bottom */
+    text-align: right; /* pushes text to the right */
+    font-size: 1rem;
+    color: #888;
+  }
+
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .climb-card {
+    animation: fadeSlideUp 0.4s ease forwards;
+    opacity: 0; /* ensures invisible until animation triggers */
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    min-height: 200px;
+    height: 100%;
+    margin: 20px;
+    border-radius: 10px;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  
+  
+  
+  /* Inner Flip Mechanics */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front & Back Panels */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Front */
+  .flip-card-front {
+    z-index: 2;
+  }
+  
+  /* Back */
+  .flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    font-family: Raleway, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 3;
+  }
+  
+  

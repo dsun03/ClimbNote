@@ -1,0 +1,73 @@
+.edit-profile-page {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.edit-profile-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.message {
+    text-align: center;
+    color: #4e91fc;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-profile-form {
+    width: 100%;              /* 🔑 expands to full width of container */
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .edit-profile-form label {
+
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+  }
+
+.edit-profile-form input {
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-profile-form input:focus {
+  border-color: #4e91fc;
+  outline: none;
+}
+
+.edit-profile-form input[disabled] {
+  background-color: #f5f5f5;
+  color: #888;
+}
+
+.edit-profile-form button {
+  background-color: #4e91fc;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-profile-form button:hover {
+  background-color: #3572d1;
+}

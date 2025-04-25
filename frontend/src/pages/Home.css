@@ -1,0 +1,99 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #f5f5f5; /* optional soft background */
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container.brooklyn-boulders {
+    background-color: #ff6b6b;
+  }
+  
+  .container.crg-riverside {
+    background-color: #4e91fc;
+  }
+  
+  .container.crg-chelsea {
+    background-color: #6c5ce7;
+  }
+  
+  .container.movement-lic {
+    background-color: #00b894;
+  }
+  
+  .container.vital-les {
+    background-color: #fdcb6e;
+  }
+  .currentGymDiv {
+    flex: 1;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  .buttonColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .buttonColumn button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: solid black 1px;
+    border-radius: 6px;
+    background-color: #eee;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .buttonColumn button:hover {
+    background-color: #ccc;
+  }
+  
+  /* Active button shared style */
+  .buttonColumn .active {
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Individual gym colors */
+  .buttonColumn .active.brooklyn-boulders {
+    background-color: #ff6b6b;
+  }
+  
+  .buttonColumn .active.crg-riverside {
+    background-color: #4e91fc;
+  }
+  
+  .buttonColumn .active.crg-chelsea {
+    background-color: #6c5ce7;
+  }
+  
+  .buttonColumn .active.movement-lic {
+    background-color: #00b894;
+  }
+  
+  .buttonColumn .active.vital-les {
+    background-color: #fdcb6e;
+  }
+  .home-title{
+    text-align: center;
+  }

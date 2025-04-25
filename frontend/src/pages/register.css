@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin: 1rem auto;
+  }
+  
+  .registerDiv {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 400px; 
+    box-sizing: border-box; 
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .registerDiv h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #222;
+    text-align: center;
+  }
+  
+  .registerDiv label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #444;
+    font-weight: 500;
+  }
+  
+  .registerDiv input {
+    width: 90%;
+    padding: 0.6rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    
+  }
+  
+  .registerDiv button {
+    width: 90%;
+    padding: 0.8rem;
+    background-color: #4e91fc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .registerDiv button:hover {
+    background-color: #3572d1;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .alternative {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #4e91fc;
+    text-decoration: none;
+  }
+  
+  .alternative:hover {
+    text-decoration: underline;
+  }
+  

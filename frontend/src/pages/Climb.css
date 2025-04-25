@@ -1,0 +1,126 @@
+.open-filter-button {
+  position: fixed;
+  bottom: 80px; /* Adjust based on navbar height */
+  right: 20px;
+  z-index: 1100;
+  background-color: #4e91fc;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+  width: 20%;
+}
+
+.open-filter-button:hover {
+  background-color: #3572d1;
+}
+
+.filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.filter-modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  width: 6%;
+  margin: auto auto;
+  transition: font-size 0.3s ease;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: #4e91fc;
+
+}
+.close-button:hover{
+  background-color: #3572d1;
+  color:white;
+}
+
+
+.apply-filter-button {
+  background-color: #4e91fc;
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+
+}
+
+.apply-filter-button:hover{
+  background-color: #3572d1;
+}
+
+/* Optional: Style chips if needed */
+.styleChip {
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.styleChip.selected {
+  background-color: #4e91fc;
+  color: white;
+}
+.styleToggleGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+
+.climbing-card-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
