@@ -12,7 +12,7 @@ const Climbs = () =>{
 
     useEffect(() => {
         const fetchFilteredClimbs = async () => {
-          const response = await axios.get('/api/climbs', {
+          const response = await axios.get('/climbs', {
             params: {
               gym: filterGym,
               grade: filterGrade,

@@ -19,7 +19,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('/api/users/me', {
+        const res = await axios.get('/users/me', {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -41,7 +41,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchClimbCount = async () => {
       try {
-        const response = await axios.get('/api/climbs/count', {
+        const response = await axios.get('/climbs/count', {
           params: { username }
         });
         setTotalClimbs(response.data.total);

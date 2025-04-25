@@ -27,7 +27,7 @@ function Signup() {
     setError("");
 
     try {
-      const response = await axios.post('/api/auth/signup',
+      const response = await axios.post('/auth/signup',
         { username, password, email }
       );
       const { token, userId } = response.data;

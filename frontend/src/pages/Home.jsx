@@ -19,7 +19,7 @@ const Home = () => {
     }, []);
 
     const updateGym =(gymName)=> {
-      axios.post('/api/gym', {gym: gymName})
+      axios.post('/gym', {gym: gymName})
       .then(setCurrentGym(gymName))
       .catch(err=>console.error("Failed to update gym", err));
     }

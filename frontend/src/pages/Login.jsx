@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/auth/login',
+      const response = await axios.post('/auth/login',
         { username, password }
       );
       const { token, userId } = response.data;

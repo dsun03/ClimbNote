@@ -29,7 +29,7 @@ const UploadClimbCard = ()=>{
 
           console.log(formData);
       
-          const response = await axios.post('/api/upload-climb', formData, {
+          const response = await axios.post('/upload-climb', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },

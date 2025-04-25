@@ -27,7 +27,7 @@
 useEffect(() => {
   const fetchClimbCount = async () => {
     try {
-      const response = await axios.get('/api/climbs/count', {
+      const response = await axios.get('/climbs/count', {
         params: { username }
       });
       setTotalClimbs(response.data.total);
