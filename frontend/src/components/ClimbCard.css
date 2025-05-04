@@ -1,153 +1,254 @@
-.climb-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative; /* if needed for other placement */
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.climb-card-container {
+  width: 320px;
+  height: 450px;
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.climb-card, .card-back {
   width: 100%;
   height: 100%;
-  max-width: 300px;
-  transition: transform 0.2s ease;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-  
-  .climb-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-  
-  .grade {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4e91fc;
-  }
-  
-  .gym {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #555;
-    text-transform: capitalize;
-  }
-  
-  .climb-body {
-    display: flex;
-    flex-wrap: nowrap; /* prevent wrapping */
-    overflow-x: auto;  /* enable horizontal scroll */
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem; /* optional: gives scroll breathing room */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #ccc transparent;
-  }
 
-  .climb-body::-webkit-scrollbar {
-    height: 6px;
-  }
-  .climb-body::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-  }
-  .climb-body::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .style-chip {
-    background-color: #f0f4ff;
-    color: #1e3a8a;
-    padding: 0.4rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-  }
-  
-  .climb-footer {
-    margin-top: auto; /* pushes it to the bottom */
-    text-align: right; /* pushes text to the right */
-    font-size: 1rem;
-    color: #888;
-  }
+.climb-card {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
 
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .climb-card {
-    animation: fadeSlideUp 0.4s ease forwards;
-    opacity: 0; /* ensures invisible until animation triggers */
-  }
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #f3f4f6;
+  padding: 20px;
+  z-index: 1;
+}
 
-  .flip-card {
-    background-color: transparent;
-    width: 300px;
-    min-height: 200px;
-    height: 100%;
-    margin: 20px;
-    border-radius: 10px;
-    perspective: 1000px;
-    overflow: hidden;
+.flipped .climb-card {
+  transform: rotateY(180deg);
+}
+
+.flipped .card-back {
+  transform: rotateY(360deg);
+  z-index: 3;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #eee;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  background-color: #4e91fc;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  font-weight: bold;
+}
+
+.meta {
+  text-align: left;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.badge {
+  background-color: #4e91fc;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.card-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.title {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.image-preview {
+  position: relative;
+  height: 150px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-preview .placeholder {
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.view-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.location {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.styles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.style-chip {
+  background-color: #eef2ff;
+  color: #4f46e5;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+}
+
+.card-footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.flip-button {
+  background-color: #e5e7eb;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.comments-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.comment {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.ReactModal__Content {
+  position: relative;
+  margin: auto;
+  max-width: 600px;
+  max-height: 90vh;
+  background: transparent;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Display the image responsively */
+.ReactModal__Content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button styling */
+.ReactModal__Content button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.2s ease;
+}
+
+.ReactModal__Content button:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(300px);
   }
-  
-  
-  
-  /* Inner Flip Mechanics */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Front & Back Panels */
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-  
-  /* Front */
-  .flip-card-front {
-    z-index: 2;
-  }
-  
-  /* Back */
-  .flip-card-back {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
-    font-family: Raleway, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-  }
-  
-  .flip-card-back img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    z-index: 3;
-  }
-  
-  
+}
+
+.ReactModal__Content {
+  animation: slideInUp 0.7s forwards;
+}

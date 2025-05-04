@@ -49,7 +49,7 @@ function Signup() {
   return (
     <>
       <div className="registerDiv">
-      <h1 className="title">Climb Tracker</h1>
+      <h1 className="title">ClimbNote</h1>
         <h2>Sign Up</h2>
 
         {error && <p className="error">{error}</p>}

@@ -35,7 +35,7 @@ function Login() {
     <>
       
       <div className="registerDiv">
-        <h1 className="title">Climb Tracker</h1>
+        <h1 className="title">ClimbNote</h1>
         <h2>Login</h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={goToHome}>
