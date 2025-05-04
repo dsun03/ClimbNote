@@ -138,12 +138,13 @@ const Profile = () => {
           {userInfo.age && <div className="stat"><strong>Age:</strong> {userInfo.age}</div>}
           <div className="stat"><strong>Total Climbs Logged:</strong> {totalClimbs}</div>
         </div>
-
+        <div className="profile-actions">
+          <button className="profile-actions"onClick={handleShowClimbs}>History</button>
+        </div>
         {userInfo.username === username && (
           <div className="profile-actions">
             <button onClick={editProfile}>Edit Profile</button>
             <button onClick={handleSignOut}>Sign Out</button>
-            <button onClick={handleShowClimbs}>History</button>
           </div>
         )}
       </div>
