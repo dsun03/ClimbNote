@@ -10,6 +10,7 @@ const UploadClimbCard = ()=>{
     const [styles, setStyles] = useState([]);
     const [file, setFile] = useState(null);
     const [image, setImage] = useState();
+    const [notes, setNotes] = useState('');
 
     
     const handleSubmit = async (e) => {
@@ -23,9 +24,10 @@ const UploadClimbCard = ()=>{
           formData.append('gym', gym);
           formData.append('grade', grade);
           formData.append('userId', localStorage.getItem('userId'));
-          formData.append('image', image); // 👈 this is your file
+          formData.append('image', image); 
           formData.append('username', decodedToken.username);
           formData.append('style', styles);
+          formData.append('notes', notes);
 
           console.log(formData);
       
@@ -43,6 +45,7 @@ const UploadClimbCard = ()=>{
           setStyles([]);
           setFile(null);
           setImage(null);
+          setNotes('');
       
         } catch (error) {
           console.error('Error logging climb:', error.response?.data || error.message);
@@ -123,6 +126,14 @@ const UploadClimbCard = ()=>{
                         </button>
                     ))}
                     </div>
+                    </label>
+                    <label>
+                        Notes:
+                        <textarea
+                            value={notes}
+                            onChange={(e) => setNotes(e.target.value)}
+                            placeholder="Optional notes about the climb"
+                        />
                     </label>
                     <label className='file-upload-label'>
                         Choose image of route

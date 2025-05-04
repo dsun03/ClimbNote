@@ -73,16 +73,25 @@ const EditProfile = () => {
           <input name="email" value={formData.email} onChange={handleChange} disabled />
         </label>
         <label>
-          Height:
-          <input name="height" value={formData.height || ''} onChange={handleChange} />
+          Height (inches):
+          <input
+            type="number"
+            name="height"
+            placeholder="e.g. 69"
+            min="24"
+            max="100"
+            value={formData.height || ''}
+            onChange={handleChange}
+            required
+          />
         </label>
         <label>
-          Arm Span:
-          <input name="armSpan" value={formData.armSpan || ''} onChange={handleChange} />
+          Arm Span (inches):
+          <input type = 'number' name="armSpan" value={formData.armSpan || ''} placeholder='e.g. 69' onChange={handleChange} />
         </label>
         <label>
           Age:
-          <input name="age" type="number" value={formData.age || ''} onChange={handleChange} />
+          <input name="age" type="number" min='13' max='110' value={formData.age || ''} placeholder='e.g. 69' onChange={handleChange} />
         </label>
         <button type="submit">Save Changes</button>
       </form>

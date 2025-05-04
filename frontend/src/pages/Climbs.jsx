@@ -3,6 +3,7 @@ import axios from '../axiosconfig.js'
 import ClimbCard from "../components/ClimbCard.jsx";
 import './Climb.css';
 import Modal from 'react-modal';
+import CardContainer from '../components/CardContainer.jsx'
 
 const Climbs = () =>{
     const [filterGym, setFilterGym] = useState('')
@@ -106,17 +107,7 @@ const Climbs = () =>{
                     <img src={selectedImage} alt="Route" />
                     <button onClick={closeModal}>✖️</button>
             </Modal>
-
-            <div className="climbing-card-container">
-                {climbs.length === 0 ? (
-                    <p className="no-climbs-message">No climbs match your filters.</p>
-                ) : (
-                    climbs.map((climb, index) => (
-                    <ClimbCard key={index} climbDetails={climb} onViewImage = {handleOpenModal} />
-                    ))
-                )}
-
-            </div>
+            <CardContainer climbDetails = {climbs} handleOpenModal = {handleOpenModal}></CardContainer>
         </>
     )
 }

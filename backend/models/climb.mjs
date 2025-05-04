@@ -12,7 +12,8 @@ const ClimbSchema = new mongoose.Schema({
     grade: String,
     style: [],
     date: {type: Date, default: Date.now},
-    image: String
+    image: String,
+    notes: String
 })
 
 const Climb = mongoose.model("Climb", ClimbSchema);

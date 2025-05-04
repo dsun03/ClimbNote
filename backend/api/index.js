@@ -108,7 +108,7 @@ app.get('/getCurrentGym', async (req, res)=>{
 
 app.post('/upload-climb', upload.single('image'), async (req, res) => {
   try {
-    const { userId, gym, grade, style, username } = req.body;
+    const { userId, gym, grade, style, username, notes } = req.body;
     const styles = style.split(',');
     const imageUrl = req.file?.location; // multer-s3 automatically adds .location
 
@@ -119,7 +119,8 @@ app.post('/upload-climb', upload.single('image'), async (req, res) => {
       style: styles,
       image: imageUrl,
       date: new Date(),
-      username
+      username,
+      notes
     });
 
     await newClimb.save();
@@ -163,6 +164,23 @@ app.get('/climbs/count', async (req, res) => {
 
   const total = await Climb.countDocuments({ userId: user._id });
   res.json({ total });
+});
+
+app.get('/myclimbs', async (req, res) => {
+  const { username } = req.query;
+
+  if (!username) {
+    return res.status(400).json({ error: 'Missing username' });
+  }
+
+  const user = await User.findOne({ username });
+  if (!user) {
+    console.log('user not found');
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  const climbs = await Climb.find({ userId: user._id }).sort({ date: -1 }); // most recent first
+  res.json(climbs);
 });
 
 app.get('/users/me', authenticateToken, async (req, res) => {

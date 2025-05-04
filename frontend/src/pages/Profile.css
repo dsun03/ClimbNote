@@ -1,67 +1,104 @@
 .profile-page {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    box-sizing: border-box;
-  }
-  
-  .profile-page h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #222;
-  }
-  
-  .profile-page h2,
-  .profile-page h3 {
-    margin: 0.5rem 0;
-    color: #444;
-    font-weight: 500;
-  }
-  
-  .profile-page p {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .profile-page strong {
-    color: #333;
-    font-weight: 600;
-  }
-  
-  .profile-page button {
-    margin: 1rem 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-  }
-  
-  .profile-page button:first-of-type {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-banner {
+  background-color: #4e91fc;
+  height: 100px;
+}
+
+.profile-content {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.profile-avatar {
+  width: 96px;
+  height: 96px;
+  border: 4px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: -48px auto 10px auto;
+  background-color: #ecf0f1;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.handle {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  text-align: left;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.stat {
+  margin: 0.5rem 0;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.profile-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4e91fc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.profile-actions button:hover {
+  background-color: #3572d1;
+}
+
+  .handle-view-profile {
+    position: fixed;
+    bottom: 80px; /* Adjust based on navbar height */
+    right: 20px;
+    z-index: 1100;
     background-color: #4e91fc;
     color: white;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
+    width: 20%;
   }
   
-  .profile-page button:first-of-type:hover {
-    background-color: #3a76db;
-    transform: scale(1.03);
-  }
-  
-  .profile-page button:last-of-type {
-    background-color: #eeeeee;
-    color: #333;
-  }
-  
-  .profile-page button:last-of-type:hover {
-    background-color: #dddddd;
-    transform: scale(1.03);
+  .handle-view-profile:hover {
+    background-color: #3572d1;
   }
   
